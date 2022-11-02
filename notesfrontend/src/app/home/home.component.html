@@ -1,0 +1,43 @@
+<div class="main">
+    <div class="card" style="width: 18rem;" *ngFor="let note of notes; let x = index">
+        <div class="card-body">
+          <h4 class="card-title">{{note.title}}</h4>
+          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+          <p class="card-text">{{note.details}}</p>
+
+          <div class="buttoncrd">
+            <button class="btn btn-primary" (click)="sendIndex(x)" >View</button>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+          </div>
+          
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"   *ngFor="let note of notes; let x = index">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{note.title.id}}</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to delete your <span style="color: red;">{{note.title.id}}</span></p>
+                </div>
+                <div class="button modal-footer">
+                  <div class="buttons">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                  <div class="buttons">
+                    <button type="button" class="btn btn-primary" (click)="deletData(x)">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+</div>   
+
+
